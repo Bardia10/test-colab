@@ -1,5 +1,5 @@
-print("a string")
+print("a strings")
 print("then")
 print("not")
 print("for long")
-
+print("how about now")
