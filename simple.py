@@ -1,5 +1,6 @@
 # expense_tracker.py
-
+from fastapi import FastAPI
+import requests
 # لیست جهانی برای ذخیره هزینه‌ها
 expenses = []
 
@@ -54,6 +55,32 @@ def main():
             break
         else:
             print("گزینه نامعتبر است. لطفاً دوباره تلاش کنید.")
+
+#changes from Mohammadzadeh
+
+router = FastAPI()
+
+#check user registration fastapi router
+@router.get("/check_register")
+async def get_user_info(name: str):
+    if name.lower() == 'ahmad':
+        print("welcome Ahmad :)")
+    elif name.lower() == ("amir mohammad" or "amir_mohammad"):
+        print("Welcome Amir Mohammad :)")
+    elif name.lower() == 'bardia':
+        print("welcome Bardia :)")
+    elif name.lower() == 'gazal bagheri':
+        print("welcome Gazal :)")
+    elif name.lower() == ("mohammad javad" or "mohammad_javad"):
+        print("Welcome Mohammad Javad :)")
+    elif name.lower() == 'kimia mahdavi':
+        print("welcome Kimia :)")
+    else:
+        print("Sorry we are so sorry! you don't have access to this application.")
+        print('-' * 50)
+        print("for further information, contact to one of the aland group team members!")
+        print('-' * 50)
+        
 
 # اجرای برنامه
 if __name__ == "__main__":
