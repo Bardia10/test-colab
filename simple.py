@@ -5,7 +5,17 @@ expenses = []
 
 # تابع اضافه کردن هزینه
 def add_expense():
-    pass
+    description = input("توضیح هزینه را وارد کنید: ")
+    while True:
+        try:
+            amount = float(input("مبلغ هزینه را وارد کنید: "))
+            break
+        except ValueError:
+            print("لطفاً مبلغ را به صورت عددی وارد کنید.")
+    
+    expense = {"description": description, "amount": amount}
+    expenses.append(expense)
+    print(f"هزینه '{description}' به مبلغ {amount} با موفقیت اضافه شد.")
 
 # تابع نمایش لیست هزینه‌ها
 def view_expenses():
