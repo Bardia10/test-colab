@@ -22,8 +22,31 @@ def view_expenses():
     pass
 
 # تابع محاسبه مجموع هزینه‌ها
-def calculate_total_expenses():
-    pass
+def calculate_total_expenses(expenses_list):
+    """
+    این تابع مجموع هزینه‌های موجود در یک لیست را محاسبه می‌کند.
+
+    Args:
+        expenses_list (list): لیستی از هزینه‌ها (اعداد).
+
+    Returns:
+        float or int: مجموع کل هزینه‌ها.
+    """
+    if not isinstance(expenses_list, list):
+        raise TypeError("ورودی باید یک لیست باشد.")
+    if not all(isinstance(item, (int, float)) for item in expenses_list):
+        raise ValueError("لیست باید فقط شامل اعداد باشد.")
+
+    return sum(expenses_list)
+
+# مثال استفاده:
+my_expenses = [100.50, 25.75, 120.00, 50.25]
+total = calculate_total_expenses(my_expenses)
+print(f"مجموع کل هزینه‌ها: {total}") # خروجی: مجموع کل هزینه‌ها: 296.5
+
+my_expenses_2 = [10, 20, 30]
+total_2 = calculate_total_expenses(my_expenses_2)
+print(f"مجموع کل هزینه‌ها: {total_2}") # خروجی: مجموع کل هزینه‌ها: 60
 
 # تابع ذخیره هزینه‌ها در فایل
 def save_expenses_to_file():
