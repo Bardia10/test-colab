@@ -19,7 +19,14 @@ def add_expense():
 
 # تابع نمایش لیست هزینه‌ها
 def view_expenses():
-    pass
+    if not expenses:
+        print("هنوز هیچ هزینه‌ای ثبت نشده است.")
+        return
+
+    print("\n--- لیست هزینه‌ها ---")
+    for i, expense in enumerate(expenses,start=1):
+        print(f"{i}. توضیح: {expense['description']}, مبلغ: {expense['amount']}")
+    print("--------------------")
 
 # تابع محاسبه مجموع هزینه‌ها
 def calculate_total_expenses():
